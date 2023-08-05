@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import "./NavBar.scss";
 import Logo from "../../assets/logo.svg";
 import SearhIcon from "../../assets/searchbar.svg";
@@ -151,7 +153,11 @@ const NavSearchBar = () => {
   );
 };
 
-const NavBar = () => {
+interface Props {
+  children: ReactNode;
+}
+
+const NavBar = ({ children }: Props) => {
   return (
     <div className="container">
       <nav className="main__nav">
@@ -205,7 +211,7 @@ const NavBar = () => {
             <p>v1.2.0</p>
           </div>
         </nav>
-        <div>Hello world</div>
+        <div className="content">{children}</div>
       </div>
     </div>
   );
