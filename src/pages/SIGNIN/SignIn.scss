@@ -20,6 +20,9 @@ form {
     color: $white;
     font-size: $medium-font;
     text-transform: uppercase;
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
     button:focus,
     button:active {
       border: none;
@@ -29,6 +32,6 @@ form {
   p {
     color: $primary;
     font-size: $formFont;
-    margin-bottom:30px;
+    margin-bottom: 30px;
   }
 }

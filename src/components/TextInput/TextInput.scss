@@ -5,17 +5,21 @@
   align-items: center;
   border-radius: 5px;
   justify-content: space-between;
-  background: #red;
+  // background: red;
   border: 2px solid rgba(84, 95, 125, 0.15);
   margin-bottom: 2.4rem;
   height: 50px;
   padding: 0 16px;
-  width: 447px;
+  width: 44.7rem;
+  @media (max-width: $tablet) {
+    width: 100%;
+  }
   input {
     border: none;
     background: none;
     font-family: inherit;
     font-size: 1.4rem;
+    width:80%;
     &:focus,
     &:active {
       border: $primary;

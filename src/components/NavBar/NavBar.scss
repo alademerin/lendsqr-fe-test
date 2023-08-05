@@ -1,0 +1,116 @@
+@import "../../_variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.container {
+  // display: flex;
+  // background: red;
+  font-family: "Work Sans", sans-serif;
+  // position: fixed;
+}
+.main__nav {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: $nav-box-shadow;
+  .left__container {
+    display: flex;
+  }
+  a {
+    font-size: 1.6rem;
+    color: $activeBlue;
+    margin-left: 3.57rem;
+    margin-right: 4.7rem;
+  }
+  .notification {
+    margin-right: 3rem;
+  }
+  .userProfile {
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+  .profileImage {
+    border-radius: 100px;
+    margin-right: 10px;
+  }
+}
+
+.side__nav {
+  width: 28.3rem;
+  height: 88vh;
+  padding-top: 3rem;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  font-size: 1.6rem;
+  overflow-y: scroll;
+  p {
+    color: $activeBlue;
+  }
+  .widget {
+    display: flex;
+    padding: 1rem 3rem;
+    // background: #f4f4f4;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+    img {
+      margin-right: 1rem;
+    }
+    p {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.side__nav-dropdown {
+  opacity: 1;
+  color: $activeBlue;
+}
+
+.side__nav-subgroup {
+  .header {
+    margin-top: 3rem;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: $primaryPageText;
+    font-weight: 500;
+  }
+  .widget {
+    &:hover {
+      background-color: rgba($primary, 0.3); /* Semi-transparent background on hover */
+    }
+  }
+}
+
+.searchbar {
+  background: white;
+  width: 40rem;
+  height: 4rem;
+  display: flex;
+  border-radius: 8px;
+  margin-left: 10.8rem;
+  font-size: 1.4rem;
+  input {
+    width: 34.4rem;
+    height: inherit;
+    border: 1px solid #213f7d;
+    opacity: 0.2;
+    padding: 0 2rem;
+    background: white;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  .searchButton {
+    width: 5.6rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $primary;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}
