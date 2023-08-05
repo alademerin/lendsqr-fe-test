@@ -11,6 +11,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     {/* <SignIn /> */}
     {/* <NavBar /> */}
     {/* <Users /> */}
-<UserDetail/>
+    <UserDetail />
   </React.StrictMode>
 );

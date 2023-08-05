@@ -3,14 +3,16 @@
 .cards {
   display: flex;
   // background: red;
+  margin-top:4rem;
   width: 100%;
+  justify-content: space-between;
   flex-wrap: wrap;
   .card {
-    min-width: 24rem;
-    min-height: 16rem;
+    min-width: 25rem;
+    min-height: 12rem;
     padding: 2.9rem 3rem;
     box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
-    margin-right: 2.6rem;
+    // margin-right: 2.6rem;
     margin-bottom: 2.6rem;
     .title {
       margin-top: 2.3rem;

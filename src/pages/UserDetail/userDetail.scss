@@ -1,0 +1,154 @@
+@import "../../variables";
+
+.back__btn {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: $primaryBodyText;
+  img {
+    margin-right: 1.3rem;
+  }
+}
+.user__details-header {
+  // background: red;
+  margin-top: 3.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.action__btn-container {
+  button {
+    outline: none;
+    border: none;
+    background: none;
+  }
+  @mixin button {
+    min-width: 17rem;
+    border-radius: 0.8rem;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    padding: 1.1rem 1.6rem;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  .btn__blacklist {
+    @include button;
+    border: 1px solid $red;
+    margin-right: 2rem;
+    color: $red;
+  }
+  .btn__activate {
+    @include button;
+    border: 1px solid $primary;
+    color: $primary;
+  }
+}
+
+.basicdetails {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  box-shadow: $box-shadow;
+  img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+  }
+  .basicdetails__first-row {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    // background: red;
+  }
+  @mixin container {
+    margin-left: 2rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 3rem;
+    border-right: 1px solid rgba($primaryPageText, 0.3); // padding-top: 2rem;
+  }
+  .username__container {
+    // background: green;
+    @include container;
+    h3 {
+      color: $activeBlue;
+      font-size: 2.2rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .userId {
+      margin-top: 0.7rem;
+      color: #545f7d;
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  .usertier__container {
+    @include container;
+    align-items: center;
+    .tierText {
+      color: $primaryBodyText;
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .stars {
+      margin-top: 0.8rem;
+      display: flex;
+      img {
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+  .account {
+    @include container;
+    border-right: none;
+    .account__balance {
+      color: $activeBlue;
+      font-size: 2.2rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .account__number {
+      margin-top: 0.8rem;
+      color: $activeBlue;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  .basicdetails__second-row {
+    margin-top: 5.1rem;
+    // background: green;
+    display: flex;
+    justify-content: space-between;
+    p {
+      color: $primary;
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      // margin-right: 8rem;
+      border-bottom: 1px solid $primary;
+      padding-bottom: 2rem;
+    }
+  }
+}
