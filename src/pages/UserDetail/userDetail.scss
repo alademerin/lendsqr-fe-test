@@ -24,6 +24,9 @@
     outline: none;
     border: none;
     background: none;
+    &:hover {
+      color: white;
+    }
   }
   @mixin button {
     min-width: 17rem;
@@ -42,11 +45,17 @@
     border: 1px solid $red;
     margin-right: 2rem;
     color: $red;
+    &:hover {
+      background: $red;
+    }
   }
   .btn__activate {
     @include button;
     border: 1px solid $primary;
     color: $primary;
+    &:hover {
+      background: $primary;
+    }
   }
 }
 
@@ -97,7 +106,7 @@
   }
   .usertier__container {
     @include container;
-    align-items: center;
+    // align-items: center;
     .tierText {
       color: $primaryBodyText;
       font-size: 1.4rem;
@@ -140,15 +149,86 @@
     display: flex;
     justify-content: space-between;
     p {
-      color: $primary;
       text-align: center;
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      color: rgba(0, 0, 0, 0.8);
       // margin-right: 8rem;
-      border-bottom: 1px solid $primary;
       padding-bottom: 2rem;
+      cursor: pointer;
     }
+    .active {
+      color: $primary;
+      border-bottom: 1px solid $primary;
+    }
+  }
+}
+
+@mixin header {
+  color: $activeBlue;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 3rem;
+}
+
+@mixin label {
+  color: $primaryPageText;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+@mixin detailFont {
+  color: $primaryBodyText;
+  font-family: Work Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  @media (max-width: 100rem) {
+    margin-bottom: 3rem;
+  }
+}
+
+@mixin row {
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: space-between;
+  @media (max-width: 70rem) {
+    flex-direction: column;
+  }
+}
+
+.personaldetails__container {
+  margin-top: 3rem;
+  padding: 3rem;
+  box-shadow: $box-shadow;
+  .title {
+    @include header;
+  }
+  .label {
+    @include label;
+  }
+  .detail {
+    @include detailFont;
+  }
+  .first__row {
+    @include row;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba($activeBlue, 0.1);
+    margin-bottom: 3rem;
+    div {
+      margin-right: 4rem;
+    }
+  }
+  .second {
+    margin-top: 30px;
   }
 }

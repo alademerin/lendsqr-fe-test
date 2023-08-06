@@ -44,12 +44,155 @@ const UserDetail = () => {
           </div>
         </div>
         <div className="basicdetails__second-row">
-          <p>General Details</p>
+          <p className="active">General Details</p>
           <p>Documents</p>
           <p>Bank Details</p>
           <p>Loans</p>
           <p>Savings</p>
           <p>App and System</p>
+        </div>
+      </div>
+
+      <div className="personaldetails__container">
+        <div className="personinfo__container">
+          <p className="title">Personal Information</p>
+          <div className="first__row">
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+              <div className="second">
+                <p className="label">phone number</p>
+                <p className="detail">07060780922</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+              <div className="second">
+                <p className="label">phone number</p>
+                <p className="detail">07060780922</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+              <div className="second">
+                <p className="label">phone number</p>
+                <p className="detail">07060780922</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="personinfo__container">
+          <p className="title">Education and Employment</p>
+          <div className="first__row">
+            <div>
+              <div>
+                <p className="label">Level of Education</p>
+                <p className="detail">B.Sc</p>
+              </div>
+              <div className="second">
+                <p className="label">phone number</p>
+                <p className="detail">07060780922</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+              <div className="second">
+                <p className="label">phone number</p>
+                <p className="detail">07060780922</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+              <div className="second">
+                <p className="label">phone number</p>
+                <p className="detail">07060780922</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="personinfo__container">
+          <p className="title">Socials</p>
+          <div className="first__row">
+            <div>
+              <div>
+                <p className="label">Level of Education</p>
+                <p className="detail">B.Sc</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="personinfo__container">
+          <p className="title">Guarantor</p>
+          <div className="first__row">
+            <div>
+              <div>
+                <p className="label">Level of Education</p>
+                <p className="detail">B.Sc</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className="label">full name</p>
+                <p className="detail">Grace Effiom</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </NavBar>
