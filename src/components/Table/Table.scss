@@ -1,0 +1,146 @@
+@import "../../variables";
+
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 70px;
+  padding: 8px 1.4rem;
+  border-radius: 100px;
+  background: rgba($primary, 0.06);
+  .tag__text {
+    color: $primary;
+    text-align: center;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.table__container {
+  // background: green;
+  box-shadow: $box-shadow;
+  padding: 3rem;
+}
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  font-size: 1.6rem;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  * {
+    position: relative;
+  }
+  thead th {
+    img {
+      margin-left: 1rem;
+    }
+  }
+
+  thead tr {
+    color: $primaryBodyText;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    height: 60px;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  .table__body {
+    padding: 3rem;
+    width: 100%;
+    background: green;
+  }
+
+  tbody tr {
+    color: #545f7d;
+    font-family: Work Sans;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    height: 6.2rem;
+    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  td {
+    &:last-child {
+      padding-left: 1.5rem;
+    }
+  }
+
+  td,
+  th {
+    text-align: left;
+    &.l {
+      text-align: right;
+    }
+    &.c {
+      text-align: center;
+    }
+    &.r {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 90rem) {
+  table {
+    display: flex;
+    flex-direction: column;
+    > *,
+    tr,
+    td,
+    th {
+      display: block;
+    }
+
+    thead {
+      display: none;
+    }
+    tbody tr {
+      height: auto;
+      padding: 8px 0;
+      td {
+        padding-left: 45%;
+        margin-bottom: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &:before {
+          position: absolute;
+          font-weight: 700;
+          width: 40%;
+          left: 10px;
+          top: 0;
+        }
+
+        &:nth-child(1):before {
+          content: "Code";
+        }
+        &:nth-child(2):before {
+          content: "Stock";
+        }
+        &:nth-child(3):before {
+          content: "Cap";
+        }
+        &:nth-child(4):before {
+          content: "Inch";
+        }
+        &:nth-child(5):before {
+          content: "Box Type";
+        }
+      }
+    }
+  }
+}

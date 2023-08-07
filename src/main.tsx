@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     {/* <SignIn /> */}
     {/* <NavBar /> */}
-    {/* <Users /> */}
+    <Users />
     <UserDetail />
   </React.StrictMode>
 );

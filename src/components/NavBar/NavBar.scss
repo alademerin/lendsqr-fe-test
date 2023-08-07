@@ -128,8 +128,8 @@
   border-radius: 8px;
   margin-left: 10.8rem;
   font-size: 1.4rem;
-  @media (max-width: $tablet) {
-    display: none;
+  @media (max-width: 85rem) {
+    display:none;
   }
   input {
     width: 34.4rem;

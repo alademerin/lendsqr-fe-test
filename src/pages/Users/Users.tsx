@@ -4,6 +4,7 @@ import UsersIcon from "../../assets/users.svg";
 import ActiveUsers from "../../assets/activeUsers.svg";
 import UsersWithLoans from "../../assets/usersWithLoans.svg";
 import UsersWithSavings from "../../assets/usersWithSavings.svg";
+import Table from "../../components/Table/Table";
 
 interface Card {
   icon: any;
@@ -47,6 +48,9 @@ const Users = () => {
           </div>
         ))}
       </div>
+
+      <Table/>
+      
     </NavBar>
   );
 };
