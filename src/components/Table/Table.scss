@@ -27,7 +27,7 @@ table {
   border-spacing: 1;
   border-collapse: collapse;
   border-radius: 0.4rem;
-  overflow: hidden;
+  // overflow: hidden;
   font-size: 1.6rem;
   width: 100%;
   margin: 0 auto;
@@ -57,6 +57,11 @@ table {
     padding: 3rem;
     width: 100%;
     background: green;
+    td {
+      &:hover {
+        background: red;
+      }
+    }
   }
 
   tbody tr {
@@ -71,11 +76,19 @@ table {
     &:last-child {
       border: 0;
     }
+    &:hover {
+      background: rgba(33, 63, 125, 0.1);
+    }
   }
 
   td {
     &:last-child {
-      padding-left: 1.5rem;
+      // padding-left: 1.5rem;
+      // background: red;
+      display: flex;
+      // padding: 3rem 0;
+      // height: 6rem;
+      // position: fixed;
     }
   }
 
@@ -94,7 +107,7 @@ table {
   }
 }
 
-@media (max-width: 90rem) {
+@media (max-width: 80rem) {
   table {
     display: flex;
     flex-direction: column;
@@ -113,6 +126,7 @@ table {
       padding: 8px 0;
       td {
         padding-left: 45%;
+        margin-top: 12px;
         margin-bottom: 12px;
         &:last-child {
           margin-bottom: 0;
@@ -126,21 +140,68 @@ table {
         }
 
         &:nth-child(1):before {
-          content: "Code";
+          content: "Organization";
+          text-transform: uppercase;
         }
         &:nth-child(2):before {
-          content: "Stock";
+          content: "Username";
+          text-transform: uppercase;
         }
         &:nth-child(3):before {
-          content: "Cap";
+          content: "Email";
+          text-transform: uppercase;
         }
         &:nth-child(4):before {
-          content: "Inch";
+          content: "phoneNumber";
+          text-transform: uppercase;
         }
         &:nth-child(5):before {
-          content: "Box Type";
+          content: "Date joined";
+          text-transform: uppercase;
+        }
+        &:nth-child(6):before {
+          content: "Status";
+          text-transform: uppercase;
         }
       }
     }
   }
 }
+.actions {
+  cursor: pointer;
+  @media (max-width: 80rem) {
+    position: absolute;
+  }
+}
+
+.actions__cell {
+  // background: red;
+}
+.dropdown {
+  position: absolute;
+  z-index: 1;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: $box-shadow;
+  top: 5rem;
+  left: -10rem;
+  min-width: 18rem;
+  height: 13rem;
+  bottom: -50px;
+  .dropdown__item {
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    padding-top: 1.5rem;
+    img {
+      padding-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    &:hover {
+      background: rgba(33, 63, 125, 0.1);
+    }
+  }
+}
+

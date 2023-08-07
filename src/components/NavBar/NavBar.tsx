@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 import "./NavBar.scss";
 import Logo from "../../assets/logo.svg";
@@ -189,18 +189,18 @@ const NavBar = ({ children }: Props) => {
           </div>
 
           <div className="side__nav-subgroup">
-            {widgets.map((widget) => (
-              <>
+            {widgets.map((widget, i) => (
+              <React.Fragment key={i}>
                 <p className="header">{widget.title}</p>
-                {widget?.items.map((wi) => (
-                  <div className="widget-container">
+                {widget?.items.map((wi, i) => (
+                  <div className="widget-container" key={i}>
                     <div className="widget">
                       <img src={wi.icon} />
                       <p>{wi.name}</p>
                     </div>
                   </div>
                 ))}
-              </>
+              </React.Fragment>
             ))}
           </div>
           <div className="logout__container">
@@ -208,7 +208,7 @@ const NavBar = ({ children }: Props) => {
               <img src={LogoutIcon} />
               <p>Logout</p>
             </div>
-            <p>v1.2.0</p>
+            <p className="version">v1.2.0</p>
           </div>
         </nav>
         <div className="content">{children}</div>
