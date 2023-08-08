@@ -90,7 +90,9 @@ const UserDetail = () => {
               </div>
               <div className="second">
                 <p className="label">Marital Status</p>
-                <p className="detail">{user.maritalStatus}</p>
+                <p className="detail">
+                  {user.maritalStatus && capitalizeFirstLetter(user.maritalStatus)}
+                </p>
               </div>
             </div>
             <div>
@@ -122,7 +124,7 @@ const UserDetail = () => {
             <div>
               <div>
                 <p className="label">Gender</p>
-                <p className="detail">{user.gender}</p>
+                <p className="detail">{user.gender && capitalizeFirstLetter(user.gender)}</p>
               </div>
             </div>
           </div>
@@ -202,30 +204,30 @@ const UserDetail = () => {
         <div className="personinfo__container">
           <p className="title">Guarantor</p>
           <div className="first__row">
-            {user.guarantor && user.guarantor.length > 0 ? (
+            {user.guarantors && user.guarantors.length > 0 ? (
               <>
                 <div>
                   <div>
                     <p className="label">Full Name</p>
-                    <p className="detail">{user.guarantor[0].name}</p>
+                    <p className="detail">{user.guarantors[0].name}</p>
                   </div>
                 </div>
                 <div>
                   <div>
                     <p className="label">Phone Number</p>
-                    <p className="detail">{user.guarantor[0].phoneNumber}</p>
+                    <p className="detail">{user.guarantors[0].phoneNumber}</p>
                   </div>
                 </div>
                 <div>
                   <div>
                     <p className="label">Email</p>
-                    <p className="detail">{user.guarantor[0].email}</p>
+                    <p className="detail">{user.guarantors[0].email}</p>
                   </div>
                 </div>
                 <div>
                   <div>
                     <p className="label">Relationship</p>
-                    <p className="detail">{user.guarantor[0].relationship}</p>
+                    <p className="detail">{user.guarantors[0].relationship}</p>
                   </div>
                 </div>
               </>
@@ -235,30 +237,30 @@ const UserDetail = () => {
           </div>
         </div>
         <div className="first__row">
-          {user.guarantor && user.guarantor.length > 0 ? (
+          {user.guarantors && user.guarantors.length > 0 ? (
             <>
               <div>
                 <div>
                   <p className="label">Full Name</p>
-                  <p className="detail">{user.guarantor[1].name}</p>
+                  <p className="detail">{user.guarantors[1].name}</p>
                 </div>
               </div>
               <div>
                 <div>
                   <p className="label">Phone Number</p>
-                  <p className="detail">{user.guarantor[1].phoneNumber}</p>
+                  <p className="detail">{user.guarantors[1].phoneNumber}</p>
                 </div>
               </div>
               <div>
                 <div>
                   <p className="label">Email</p>
-                  <p className="detail">{user.guarantor[1].email}</p>
+                  <p className="detail">{user.guarantors[1].email}</p>
                 </div>
               </div>
               <div>
                 <div>
                   <p className="label">Relationship</p>
-                  <p className="detail">{user.guarantor[1].relationship}</p>
+                  <p className="detail">{user.guarantors[1].relationship}</p>
                 </div>
               </div>
             </>

@@ -6,6 +6,7 @@ import ActiveUsers from "../../assets/activeUsers.svg";
 import UsersWithLoans from "../../assets/usersWithLoans.svg";
 import UsersWithSavings from "../../assets/usersWithSavings.svg";
 import Table from "../../components/Table/Table";
+
 // import { User } from "../../models";
 import axios from "axios";
 
@@ -41,18 +42,17 @@ const cards: Card[] = [
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const getUsers = async (): void => {
       try {
         const response = await axios.get(
-          "https://run.mocky.io/v3/7bdf9e95-a03f-4320-b1db-29749a205d4d"
+          "https://run.mocky.io/v3/42c7eba7-b59e-471a-a652-d0299394a938"
         );
         const data = response.data;
         // console.log("users to be set r", data);
         setLoading(false);
         setUsers(data);
-        localStorage.setItem("users", JSON.stringify( data ));
+        localStorage.setItem("users", JSON.stringify(data));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
