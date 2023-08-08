@@ -1,7 +1,8 @@
 @import "../../_variables.scss";
 
-.container {
+.login__container {
   display: flex;
+  flex-direction:row;
   @media (max-width: $tablet) {
     width: 100vw;
   }

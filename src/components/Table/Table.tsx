@@ -10,12 +10,14 @@ import BlacklistIcon from "../../assets/np_delete-friend_3248001_000000 1.png";
 import ActivateIcon from "../../assets/np_user_2995993_000000 1.png";
 
 import { User } from "../../models";
+import { Link, NavLink } from "react-router-dom";
 interface tableHeaders {
   name: string;
 }
 
 interface TableProps {
   rows: any[];
+  status: string;
 }
 
 const headers: tableHeaders[] = [
@@ -64,7 +66,9 @@ const Table = ({ rows }: TableProps) => {
               <td>{row.phoneNumber}</td>
               <td>{timeFormat("%b %d %Y %I:%M%p")(parseDate(row.dateJoined))}</td>
               <td>
-                <Tag />
+                <div className="tag">
+                  <p className="tag__text">{row.status}</p>
+                </div>
               </td>
               {/* <div className="actions__container"> */}
               <td onClick={() => handleActionClicked(row._id)}>
@@ -75,10 +79,12 @@ const Table = ({ rows }: TableProps) => {
                   <tr>
                     <td>
                       <div className="dropdown">
-                        <div class="dropdown__item">
-                          <img src={ViewIcon} />
-                          <p> View Details</p>
-                        </div>
+                        <Link className="link" to={`user/${row._id}`}>
+                          <div class="dropdown__item">
+                            <img src={ViewIcon} />
+                            <p> View Details</p>
+                          </div>
+                        </Link>
                         <div class="dropdown__item">
                           <img src={BlacklistIcon} />
                           <p> Blacklist User</p>

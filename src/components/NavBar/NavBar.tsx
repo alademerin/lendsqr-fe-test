@@ -29,6 +29,7 @@ import BadgePercent from "../../assets/badge-percent 1.svg";
 import Clipboard from "../../assets/clipboard-list 1.svg";
 import Tire from "../../assets/tire 1.svg";
 import LogoutIcon from "../../assets/sign-out 1.svg";
+import { Outlet } from "react-router-dom";
 
 type MenuItem = {
   title: string;
@@ -157,7 +158,7 @@ interface Props {
   children: ReactNode;
 }
 
-const NavBar = ({ children }: Props) => {
+const NavBar = () => {
   return (
     <div className="container">
       <nav className="main__nav">
@@ -211,7 +212,9 @@ const NavBar = ({ children }: Props) => {
             <p className="version">v1.2.0</p>
           </div>
         </nav>
-        <div className="content">{children}</div>
+        <div className="content">
+          <Outlet/>
+        </div>
       </div>
     </div>
   );

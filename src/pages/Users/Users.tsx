@@ -52,6 +52,7 @@ const Users = () => {
         // console.log("users to be set r", data);
         setIsUsersLoaded(true);
         setUsers(data);
+localStorage.setItem("users", data)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -61,7 +62,7 @@ const Users = () => {
 
   const memoizedUsers = useMemo(() => users, [users]);
   return (
-    <NavBar>
+    <>
       <h2>Users</h2>
       <div className="cards">
         {cards.map((card, i) => (
@@ -73,7 +74,7 @@ const Users = () => {
         ))}
       </div>
       <Table rows={memoizedUsers} />
-    </NavBar>
+    </>
   );
 };
 

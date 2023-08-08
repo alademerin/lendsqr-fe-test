@@ -3,10 +3,14 @@ import NavBar from "../../components/NavBar/NavBar";
 import BackArrow from "../../assets/back.svg";
 import User from "../../assets/user.png";
 import Star from "../../assets/star.svg";
-import StarOutline from "../../assets/staroutline.svg";
-const UserDetail = () => {
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+
+const UserDetail = ({ params }) => {
+  const { id } = useParams();
+
   return (
-    <NavBar>
+    <>
       <div className="back__btn">
         <img src={BackArrow} />
         <p>Back to Users</p>
@@ -195,7 +199,7 @@ const UserDetail = () => {
           </div>
         </div>
       </div>
-    </NavBar>
+    </>
   );
 };
 

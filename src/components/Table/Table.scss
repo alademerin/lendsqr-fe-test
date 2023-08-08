@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: center;
   height: 30px;
-  width: 70px;
-  padding: 8px 1.4rem;
+  // width: 70px;
+  padding: 8px 12px;
   border-radius: 100px;
   background: rgba($primary, 0.06);
   .tag__text {
@@ -187,7 +187,7 @@ table {
   top: 5rem;
   left: -10rem;
   min-width: 18rem;
-  height: 13rem;
+  min-height: 15rem;
   bottom: -50px;
   .dropdown__item {
     display: flex;
@@ -195,7 +195,6 @@ table {
     width: 100%;
     padding-top: 1.5rem;
     img {
-      padding-left: 1rem;
       margin-right: 1rem;
     }
 
@@ -205,3 +204,6 @@ table {
   }
 }
 
+.link {
+  text-decoration: none;
+}
