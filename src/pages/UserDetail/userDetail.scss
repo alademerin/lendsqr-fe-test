@@ -145,6 +145,8 @@
 
   .basicdetails__second-row {
     margin-top: 5.1rem;
+    margin-right: 1rem;
+    overflow-x: scroll;
     // background: green;
     display: flex;
     justify-content: space-between;
@@ -230,5 +232,12 @@
   }
   .second {
     margin-top: 30px;
+  }
+}
+
+.backArrow {
+    cursor: pointer;
+  &:hover {
+    opacity: 0.8;
   }
 }

@@ -11,6 +11,7 @@ import ActivateIcon from "../../assets/np_user_2995993_000000 1.png";
 
 import { User } from "../../models";
 import { Link, NavLink } from "react-router-dom";
+import { BarLoader } from "react-spinners";
 interface tableHeaders {
   name: string;
 }
@@ -18,6 +19,7 @@ interface tableHeaders {
 interface TableProps {
   rows: any[];
   status: string;
+  loading: boolean;
 }
 
 const headers: tableHeaders[] = [
@@ -37,7 +39,7 @@ const Tag = () => {
   );
 };
 
-const Table = ({ rows }: TableProps) => {
+const Table = ({ rows, loading }: TableProps) => {
   const parseDate = timeParse("%Y-%m-%dT%H:%M:%S %Z");
   const [activeRow, setActiveRow] = useState<string | null>(null);
   const handleActionClicked = (rowId: string) => {
@@ -46,63 +48,73 @@ const Table = ({ rows }: TableProps) => {
 
   return (
     <div className="table__container">
-      <table>
-        <thead>
-          <tr>
-            {headers.map((header, i) => (
-              <th key={i}>
-                {header.name}
-                <img src={FilterIcon} />
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows?.map((row, i) => (
-            <tr key={row._id}>
-              <td>{row.company}</td>
-              <td>{row.name}</td>
-              <td>{row.email}</td>
-              <td>{row.phoneNumber}</td>
-              <td>{timeFormat("%b %d %Y %I:%M%p")(parseDate(row.dateJoined))}</td>
-              <td>
-                <div className="tag">
-                  <p className="tag__text">{row.status}</p>
-                </div>
-              </td>
-              {/* <div className="actions__container"> */}
-              <td onClick={() => handleActionClicked(row._id)}>
-                <div className="action__btn">
-                  <img src={ActionsIcon} />
-                </div>
-                {activeRow === row._id && (
-                  <tr>
-                    <td>
-                      <div className="dropdown">
-                        <Link className="link" to={`user/${row._id}`}>
-                          <div class="dropdown__item">
-                            <img src={ViewIcon} />
-                            <p> View Details</p>
-                          </div>
-                        </Link>
-                        <div class="dropdown__item">
-                          <img src={BlacklistIcon} />
-                          <p> Blacklist User</p>
-                        </div>
-                        <div class="dropdown__item">
-                          <img src={ActivateIcon} />
-                          <p> Activate User</p>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                )}
-              </td>
-              {/* </div> */}
+      {loading ? (
+        <div className="loader">
+          <p>Loading Users</p>
+          <BarLoader color="#39cdcc" />
+        </div>
+      ) : (
+        <table>
+          {" "}
+          <thead>
+            {" "}
+            <tr>
+              {" "}
+              {headers.map((header, i) => (
+                <th key={i}>
+                  {" "}
+                  {header.name} <img src={FilterIcon} />{" "}
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rows?.map((row, i) => (
+              <tr key={row._id}>
+                <td>{row.company}</td>
+                <td>{row.name}</td>
+                <td>{row.email}</td>
+                <td>{row.phoneNumber}</td>
+                <td>{timeFormat("%b %d %Y %I:%M%p")(parseDate(row.dateJoined))}</td>
+                <td>
+                  <div className="tag">
+                    <p className="tag__text">{row.status}</p>
+                  </div>
+                </td>
+                {/* <div className="actions__container"> */}
+                <td onClick={() => handleActionClicked(row._id)}>
+                  <div className="action__btn">
+                    <img src={ActionsIcon} />
+                  </div>
+                  {activeRow === row._id && (
+                    <tr>
+                      <td>
+                        <div className="dropdown">
+                          <Link className="link" to={`user/${row._id}`}>
+                            <div class="dropdown__item">
+                              <img src={ViewIcon} />
+                              <p> View Details</p>
+                            </div>
+                          </Link>
+                          <div class="dropdown__item">
+                            <img src={BlacklistIcon} />
+                            <p> Blacklist User</p>
+                          </div>
+                          <div class="dropdown__item">
+                            <img src={ActivateIcon} />
+                            <p> Activate User</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                </td>
+                {/* </div> */}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

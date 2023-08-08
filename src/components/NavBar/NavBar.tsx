@@ -29,7 +29,7 @@ import BadgePercent from "../../assets/badge-percent 1.svg";
 import Clipboard from "../../assets/clipboard-list 1.svg";
 import Tire from "../../assets/tire 1.svg";
 import LogoutIcon from "../../assets/sign-out 1.svg";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 type MenuItem = {
   title: string;
@@ -37,6 +37,7 @@ type MenuItem = {
     {
       icon: any;
       name: string;
+      pageLink?: string;
     }
   ];
 };
@@ -48,6 +49,7 @@ const widgets: MenuItem[] = [
       {
         icon: UserFriends,
         name: "Users",
+        pageLink: "/",
       },
       {
         icon: Guarantors,
@@ -193,17 +195,20 @@ const NavBar = () => {
             {widgets.map((widget, i) => (
               <React.Fragment key={i}>
                 <p className="header">{widget.title}</p>
-                {widget?.items.map((wi, i) => (
-                  <div className="widget-container" key={i}>
-                    <div className="widget">
-                      <img src={wi.icon} />
-                      <p>{wi.name}</p>
+                {widget?.items.map((wi, j) => (
+                  <NavLink className="navlink" key={j} to={wi.pageLink}>
+                    <div className={"widget-container"}>
+                      <div className="widget">
+                        <img src={wi.icon} alt={wi.name} />
+                        <p>{wi.name}</p>
+                      </div>
                     </div>
-                  </div>
+                  </NavLink>
                 ))}
               </React.Fragment>
             ))}
           </div>
+
           <div className="logout__container">
             <div className="signout__widget">
               <img src={LogoutIcon} />
@@ -213,7 +218,7 @@ const NavBar = () => {
           </div>
         </nav>
         <div className="content">
-          <Outlet/>
+          <Outlet />
         </div>
       </div>
     </div>

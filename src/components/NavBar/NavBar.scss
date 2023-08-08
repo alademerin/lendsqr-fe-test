@@ -167,3 +167,12 @@
 .version {
   font-size: 1.2rem;
 }
+.navlink {
+  text-decoration: none;
+}
+
+.navlink-active {
+  text-decoration: none;
+  width: 100%;
+  background-color: rgba($primary, 0.3); /* Semi-transparent background on hover */
+}

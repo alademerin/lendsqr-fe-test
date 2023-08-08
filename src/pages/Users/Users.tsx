@@ -40,7 +40,7 @@ const cards: Card[] = [
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const [isUsersLoaded, setIsUsersLoaded] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getUsers = async (): void => {
@@ -50,9 +50,9 @@ const Users = () => {
         );
         const data = response.data;
         // console.log("users to be set r", data);
-        setIsUsersLoaded(true);
+        setLoading(false);
         setUsers(data);
-localStorage.setItem("users", data)
+        localStorage.setItem("users", JSON.stringify( data ));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -73,7 +73,7 @@ localStorage.setItem("users", data)
           </div>
         ))}
       </div>
-      <Table rows={memoizedUsers} />
+      <Table rows={memoizedUsers} loading={loading} />
     </>
   );
 };

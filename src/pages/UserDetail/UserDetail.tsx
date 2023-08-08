@@ -3,17 +3,37 @@ import NavBar from "../../components/NavBar/NavBar";
 import BackArrow from "../../assets/back.svg";
 import User from "../../assets/user.png";
 import Star from "../../assets/star.svg";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { User as UserType } from "../../models";
+import { useLayoutEffect, useState } from "react";
+import { capitalizeFirstLetter } from "../../helpers/StringManipulation";
 
-const UserDetail = ({ params }) => {
+const UserDetail = () => {
   const { id } = useParams();
+
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState<Object>({});
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const getUserById = async (id: string): UserType | null => {
+    let users = await localStorage.getItem("users");
+    users = await JSON.parse(users);
+    console.log("the users are", users);
+    const user = await users.find((user) => user._id === id);
+    console.log("the user is", { ...user, social: user.name.split(" ").reverse().join("") });
+    await setUser(user);
+  };
+
+  useLayoutEffect(() => {
+    getUserById(id);
+  }, []);
 
   return (
     <>
-      <div className="back__btn">
+      <div className="back__btn" onClick={() => navigate(-1)}>
         <img src={BackArrow} />
-        <p>Back to Users</p>
+        <p className="backArrow">Back to Users</p>
       </div>
       <div className="user__details-header">
         <div>
@@ -31,8 +51,8 @@ const UserDetail = ({ params }) => {
             <img src={User} />
           </div>
           <div className="username__container">
-            <h3>Grace Effiom</h3>
-            <p className="userId">LSQFf587g90</p>
+            <h3>{user.name}</h3>
+            <p className="userId">{user._id}</p>
           </div>
           <div className="usertier__container">
             <p className="tierText">User's Tier</p>
@@ -43,8 +63,10 @@ const UserDetail = ({ params }) => {
             </span>
           </div>
           <div className="account">
-            <p className="account__balance">₦200,000.00</p>
-            <p className="account__number">9912345678/Providus Bank</p>
+            <p className="account__balance">₦{user.balance}</p>
+            <p className="account__number">
+              {user.accountNumber}/ {user.bank}
+            </p>
           </div>
         </div>
         <div className="basicdetails__second-row">
@@ -64,43 +86,43 @@ const UserDetail = ({ params }) => {
             <div>
               <div>
                 <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="detail">{user.name}</p>
               </div>
               <div className="second">
-                <p className="label">phone number</p>
-                <p className="detail">07060780922</p>
+                <p className="label">Marital Status</p>
+                <p className="detail">{user.maritalStatus}</p>
               </div>
             </div>
             <div>
               <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="label">Phone Number</p>
+                <p className="detail">{user.phoneNumber}</p>
               </div>
               <div className="second">
-                <p className="label">phone number</p>
-                <p className="detail">07060780922</p>
+                <p className="label">Children</p>
+                <p className="detail">{0}</p>
               </div>
             </div>
             <div>
               <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="label">Email Address</p>
+                <p className="detail">{user.email}</p>
               </div>
               <div className="second">
-                <p className="label">phone number</p>
-                <p className="detail">07060780922</p>
+                <p className="label">Type of Residence</p>
+                <p className="detail">{user.typeOfResidence}</p>
               </div>
             </div>
             <div>
               <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="label">BVN</p>
+                <p className="detail">{user.accountNumber}</p>
               </div>
             </div>
             <div>
               <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="label">Gender</p>
+                <p className="detail">{user.gender}</p>
               </div>
             </div>
           </div>
@@ -111,43 +133,41 @@ const UserDetail = ({ params }) => {
             <div>
               <div>
                 <p className="label">Level of Education</p>
-                <p className="detail">B.Sc</p>
+                <p className="detail">{user.levelOfEducation}</p>
               </div>
               <div className="second">
-                <p className="label">phone number</p>
-                <p className="detail">07060780922</p>
+                <p className="label">Office Email</p>
+                <p className="detail">
+                  {user.employmentStatus === "Unemployed" ? "N/A" : user.email}
+                </p>
               </div>
             </div>
             <div>
               <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="label">Employment Status</p>
+                <p className="detail">{user.employmentStatus}</p>
               </div>
               <div className="second">
-                <p className="label">phone number</p>
-                <p className="detail">07060780922</p>
+                <p className="label">Monthly Income</p>
+                <p className="detail">{user.monthlyIncome}</p>
               </div>
             </div>
             <div>
               <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="label">Sector of Employment</p>
+                <p className="detail">
+                  {user.employmentStatus === "Unemployed" ? "N/A" : user.sectorOfEmployment}
+                </p>
               </div>
               <div className="second">
-                <p className="label">phone number</p>
-                <p className="detail">07060780922</p>
+                <p className="label">Loan repayment</p>
+                <p className="detail">{user.loanRepayment}</p>
               </div>
             </div>
             <div>
               <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
-              </div>
-            </div>
-            <div>
-              <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="label">Duration of Employment</p>
+                <p className="detail">{user.durationOfEmployment}</p>
               </div>
             </div>
           </div>
@@ -157,20 +177,24 @@ const UserDetail = ({ params }) => {
           <div className="first__row">
             <div>
               <div>
-                <p className="label">Level of Education</p>
-                <p className="detail">B.Sc</p>
+                <p className="label">Twitter</p>
+                <p className="detail">
+                  {user.name && `@${user.name.split(" ").reverse().join("").toLowerCase()}`}
+                </p>
               </div>
             </div>
             <div>
               <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="label">Facebook</p>
+                <p className="detail">{user.name}</p>
               </div>
             </div>
             <div>
               <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
+                <p className="label">Instagram</p>
+                <p className="detail">
+                  {user.name && `@${user.name.split(" ").join("").toLowerCase()}`}
+                </p>
               </div>
             </div>
           </div>
@@ -178,25 +202,69 @@ const UserDetail = ({ params }) => {
         <div className="personinfo__container">
           <p className="title">Guarantor</p>
           <div className="first__row">
-            <div>
-              <div>
-                <p className="label">Level of Education</p>
-                <p className="detail">B.Sc</p>
-              </div>
-            </div>
-            <div>
-              <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
-              </div>
-            </div>
-            <div>
-              <div>
-                <p className="label">full name</p>
-                <p className="detail">Grace Effiom</p>
-              </div>
-            </div>
+            {user.guarantor && user.guarantor.length > 0 ? (
+              <>
+                <div>
+                  <div>
+                    <p className="label">Full Name</p>
+                    <p className="detail">{user.guarantor[0].name}</p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <p className="label">Phone Number</p>
+                    <p className="detail">{user.guarantor[0].phoneNumber}</p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <p className="label">Email</p>
+                    <p className="detail">{user.guarantor[0].email}</p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <p className="label">Relationship</p>
+                    <p className="detail">{user.guarantor[0].relationship}</p>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <p>No guarantor information available.</p>
+            )}
           </div>
+        </div>
+        <div className="first__row">
+          {user.guarantor && user.guarantor.length > 0 ? (
+            <>
+              <div>
+                <div>
+                  <p className="label">Full Name</p>
+                  <p className="detail">{user.guarantor[1].name}</p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <p className="label">Phone Number</p>
+                  <p className="detail">{user.guarantor[1].phoneNumber}</p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <p className="label">Email</p>
+                  <p className="detail">{user.guarantor[1].email}</p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <p className="label">Relationship</p>
+                  <p className="detail">{user.guarantor[1].relationship}</p>
+                </div>
+              </div>
+            </>
+          ) : (
+            <p>No guarantor information available.</p>
+          )}
         </div>
       </div>
     </>

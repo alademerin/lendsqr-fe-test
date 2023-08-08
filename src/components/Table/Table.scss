@@ -185,8 +185,8 @@ table {
   border: 1px solid rgba(84, 95, 125, 0.04);
   box-shadow: $box-shadow;
   top: 5rem;
-  left: -10rem;
-  min-width: 18rem;
+  left: -15rem;
+  width: 20rem;
   min-height: 15rem;
   bottom: -50px;
   .dropdown__item {
@@ -194,8 +194,12 @@ table {
     padding: 1rem;
     width: 100%;
     padding-top: 1.5rem;
+    align-items: center;
+    font-size: 1.4rem;
     img {
       margin-right: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
     }
 
     &:hover {
@@ -206,4 +210,15 @@ table {
 
 .link {
   text-decoration: none;
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  p {
+    margin-bottom: 3rem;
+  }
 }
