@@ -2,15 +2,8 @@
 
 .tag {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  // width: 70px;
-  padding: 8px 12px;
-  border-radius: 100px;
-  background: rgba($primary, 0.06);
+  align-items: flex-end;
   .tag__text {
-    color: $primary;
     text-align: center;
     font-size: 1.4rem;
     font-style: normal;
@@ -116,6 +109,10 @@ table {
     td,
     th {
       display: block;
+      &:nth-last-child(2) {
+        background: red;
+        text-align: center;
+      }
     }
 
     thead {
@@ -278,4 +275,29 @@ table {
   border: none;
   margin: 0 1rem;
   font-size: 1.4rem;
+}
+
+@mixin tagPill {
+  padding: 0.7rem 1.2rem;
+  border-radius: 100px;
+}
+.blacklisted {
+  @include tagPill;
+  background: rgba($red, 0.1);
+  color: red;
+}
+.activeStatus {
+  @include tagPill;
+  background: rgba($primary, 0.1);
+  color: $primary;
+}
+.inactive {
+  @include tagPill;
+  background: rgba($primaryBodyText, 0.1);
+  color: $primaryBodyText;
+}
+.pending {
+  @include tagPill;
+  background: rgba($yellow, 0.1);
+  color: $yellow;
 }

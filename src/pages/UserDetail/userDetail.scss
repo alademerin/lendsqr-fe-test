@@ -8,6 +8,10 @@
   font-weight: 400;
   line-height: normal;
   color: $primaryBodyText;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
   img {
     margin-right: 1.3rem;
   }
@@ -236,8 +240,6 @@
 }
 
 .backArrow {
-    cursor: pointer;
-  &:hover {
-    opacity: 0.8;
-  }
+  font-size: 1.6rem;
 }
+

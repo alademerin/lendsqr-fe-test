@@ -34,13 +34,6 @@ const headers: tableHeaders[] = [
   { name: "status" },
 ];
 
-const Tag = () => {
-  return (
-    <div className="tag">
-      <p className="tag__text">Active</p>
-    </div>
-  );
-};
 
 const Table = ({ rows, loading, rowLength }: TableProps) => {
   const parseDate = timeParse("%Y-%m-%dT%H:%M:%S %Z");
@@ -101,7 +94,21 @@ const Table = ({ rows, loading, rowLength }: TableProps) => {
                   <td>{timeFormat("%b %d %Y %I:%M%p")(parseDate(row.dateJoined))}</td>
                   <td>
                     <div className="tag">
-                      <p className="tag__text">{row.status}</p>
+                      <p
+                        className={`tag__text ${
+                          row.status === "active"
+                            ? "activeStatus"
+                            : row.status === "pending"
+                            ? "pending"
+                            : row.status === "blacklisted"
+                            ? "blacklisted"
+                            : row.status === "inactive"
+                            ? "inactive"
+                            : ""
+                        }`}
+                      >
+                        {row.status}
+                      </p>
                     </div>
                   </td>
                   {/* <div className="actions__container"> */}

@@ -5,7 +5,7 @@ import User from "../../assets/user.png";
 import Star from "../../assets/star.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import { User as UserType } from "../../models";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { capitalizeFirstLetter } from "../../helpers/StringManipulation";
 
 const UserDetail = () => {
@@ -14,7 +14,6 @@ const UserDetail = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState<Object>({});
-  const [loading, setLoading] = useState<boolean>(false);
 
   const getUserById = async (id: string): UserType | null => {
     let users = await localStorage.getItem("users");
@@ -25,7 +24,7 @@ const UserDetail = () => {
     await setUser(user);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getUserById(id);
   }, []);
 
@@ -48,7 +47,7 @@ const UserDetail = () => {
       <div className="basicdetails">
         <div className="basicdetails__first-row">
           <div className="image__container">
-            <img src={`${ user.picture}${user.gender}`} />
+            <img src={`${user.picture}${user.gender}`} />
           </div>
           <div className="username__container">
             <h3>{user.name}</h3>
