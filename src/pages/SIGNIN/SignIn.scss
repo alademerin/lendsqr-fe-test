@@ -20,13 +20,13 @@ form {
     color: $white;
     font-size: $medium-font;
     text-transform: uppercase;
+      cursor: pointer;
     @media (max-width: $tablet) {
       width: 100%;
     }
-    button:focus,
-    button:active {
-      border: none;
-      outline: none;
+    &:hover {
+      opacity:0.8
+
     }
   }
   p {

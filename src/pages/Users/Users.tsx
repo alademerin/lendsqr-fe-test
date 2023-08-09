@@ -46,7 +46,7 @@ const Users = () => {
     const getUsers = async (): void => {
       try {
         const response = await axios.get(
-          "https://run.mocky.io/v3/42c7eba7-b59e-471a-a652-d0299394a938"
+          "https://run.mocky.io/v3/5f7b134e-2e75-4c33-9ff8-fb77af136719"
         );
         const data = response.data;
         // console.log("users to be set r", data);
@@ -73,7 +73,7 @@ const Users = () => {
           </div>
         ))}
       </div>
-      <Table rows={memoizedUsers} loading={loading} />
+      <Table rows={memoizedUsers} rowLength={users.length} loading={loading} />
     </>
   );
 };

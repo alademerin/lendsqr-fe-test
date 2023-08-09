@@ -29,7 +29,7 @@ import BadgePercent from "../../assets/badge-percent 1.svg";
 import Clipboard from "../../assets/clipboard-list 1.svg";
 import Tire from "../../assets/tire 1.svg";
 import LogoutIcon from "../../assets/sign-out 1.svg";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 type MenuItem = {
   title: string;
@@ -161,6 +161,8 @@ interface Props {
 }
 
 const NavBar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="container">
       <nav className="main__nav">
@@ -212,7 +214,7 @@ const NavBar = () => {
           <div className="logout__container">
             <div className="signout__widget">
               <img src={LogoutIcon} />
-              <p>Logout</p>
+              <p onClick={()=>navigate("/login")}>Logout</p>
             </div>
             <p className="version">v1.2.0</p>
           </div>

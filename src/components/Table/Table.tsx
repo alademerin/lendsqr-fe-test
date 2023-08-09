@@ -22,6 +22,7 @@ interface TableProps {
   rows: any[];
   status: string;
   loading: boolean;
+  rowLength: number;
 }
 
 const headers: tableHeaders[] = [
@@ -41,7 +42,7 @@ const Tag = () => {
   );
 };
 
-const Table = ({ rows, loading }: TableProps) => {
+const Table = ({ rows, loading, rowLength }: TableProps) => {
   const parseDate = timeParse("%Y-%m-%dT%H:%M:%S %Z");
   const [activeRow, setActiveRow] = useState<string | null>(null);
   const [currentItems, setCurrentItems] = useState([]);
@@ -80,15 +81,12 @@ const Table = ({ rows, loading }: TableProps) => {
           </div>
         ) : (
           <table>
-            {" "}
             <thead>
-              {" "}
               <tr>
-                {" "}
                 {headers.map((header, i) => (
                   <th key={i}>
-                    {" "}
-                    {header.name} <img src={FilterIcon} />{" "}
+                    {header.name}
+                    <img src={FilterIcon} className="header__filter" />
                   </th>
                 ))}
               </tr>
@@ -141,15 +139,33 @@ const Table = ({ rows, loading }: TableProps) => {
           </table>
         )}
       </div>
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-      />
+      <div className="pagContainer">
+        <div className="row__count">
+          <p>Showing </p>
+          <select className="itemsPerPage" onChange={(e) => setItemsPerPage(e.target.value)}>
+            <option value={10}>{10}</option>
+            <option value={rowLength / 25}>{rowLength / 25}</option>
+            <option value={rowLength / 10}>{rowLength / 10}</option>
+            <option value={rowLength / 5}>{rowLength / 5}</option>
+            <option value={rowLength}>{rowLength}</option>
+          </select>
+          <p>out of {rowLength} </p>
+        </div>
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          pageLinkClassName="page__num"
+          previousLinkClassName="page__btn"
+          nextLinkClassName="page__btn"
+          activeLinkClassName="active"
+        />
+      </div>
     </>
   );
 };

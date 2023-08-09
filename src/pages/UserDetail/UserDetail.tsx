@@ -48,7 +48,7 @@ const UserDetail = () => {
       <div className="basicdetails">
         <div className="basicdetails__first-row">
           <div className="image__container">
-            <img src={User} />
+            <img src={`${ user.picture}${user.gender}`} />
           </div>
           <div className="username__container">
             <h3>{user.name}</h3>
