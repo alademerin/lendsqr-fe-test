@@ -227,8 +227,12 @@ table {
   width: 20rem;
   height: 15rem;
   bottom: -50px;
+  @media (max-width: $tablet) {
+    left: 80%;
+    top: -17rem;
+  }
   @media (max-width: 90rem) {
-    left: 60%;
+    left: 40%;
     top: -16rem;
   }
   .dropdown__item {
@@ -302,6 +306,12 @@ table {
   // align-items: flex-start;
   justify-content: space-between;
   margin-top: 2rem;
+  @media (max-width: 76rem) {
+    justify-content: center;
+    .react-paginate {
+      display: none;
+    }
+  }
 }
 
 .row__count {

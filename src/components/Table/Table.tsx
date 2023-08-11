@@ -325,20 +325,22 @@ const Table = ({ rows, loading, rowLength }: TableProps) => {
           </select>
           <p>out of {rowLength} </p>
         </div>
-        <ReactPaginate
-          breakLabel='...'
-          nextLabel='>'
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={2}
-          pageCount={pageCount}
-          previousLabel='<'
-          renderOnZeroPageCount={null}
-          containerClassName='pagination'
-          pageLinkClassName='page__num'
-          previousLinkClassName='page__btn'
-          nextLinkClassName='page__btn'
-          activeLinkClassName='active'
-        />
+        <div className='react-paginate'>
+          <ReactPaginate
+            breakLabel='...'
+            nextLabel='>'
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={2}
+            pageCount={pageCount}
+            previousLabel='<'
+            renderOnZeroPageCount={null}
+            containerClassName='pagination'
+            pageLinkClassName='page__num'
+            previousLinkClassName='page__btn'
+            nextLinkClassName='page__btn'
+            activeLinkClassName='active'
+          />
+        </div>
       </div>
     </>
   )
