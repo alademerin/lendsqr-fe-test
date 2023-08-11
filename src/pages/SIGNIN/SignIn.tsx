@@ -11,7 +11,7 @@ const SignIn = () => {
 
   const handleLogin = (e: { preventDefault: () => void; }): void => {
     e.preventDefault();
-    navigate("/");
+    navigate("/users");
   };
 
   return (

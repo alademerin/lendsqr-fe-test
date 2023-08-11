@@ -49,7 +49,7 @@ const widgets: MenuItem[] = [
       {
         icon: UserFriends,
         name: 'Users',
-        pageLink: '/',
+        pageLink: '/users',
       },
       {
         icon: Guarantors,
