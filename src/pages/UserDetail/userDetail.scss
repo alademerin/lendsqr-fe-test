@@ -36,6 +36,7 @@
   @media (max-width: $tablet) {
     display: flex;
     margin-top: 3rem;
+    transform:scale(0.8)
   }
   button {
     outline: none;
