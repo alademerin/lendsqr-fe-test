@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import './NavBar.scss'
 import Logo from '../../assets/logo.svg'
 import SearhIcon from '../../assets/searchbar.svg'

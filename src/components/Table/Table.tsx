@@ -14,7 +14,6 @@ import { Link } from 'react-router-dom'
 import { BarLoader } from 'react-spinners'
 import ReactPaginate from 'react-paginate'
 import Select from 'react-select'
-import { OptionsType } from 'react-select'
 
 interface tableHeaders {
   name: string
@@ -39,15 +38,15 @@ const Table = ({ rows, loading, rowLength }: TableProps) => {
   const parseDate = timeParse('%Y-%m-%dT%H:%M:%S %Z')
   const [activeRow, setActiveRow] = useState<string | null>(null)
   const [currentItems, setCurrentItems] = useState<User[]>([])
-  const [filteredRows, setFilteredRows]= useState<User[]>([])
+  const [filteredRows, setFilteredRows] = useState<User[]>([])
   const [pageCount, setPageCount] = useState<number>(0)
   const [itemOffset, setItemOffset] = useState<number>(0)
   const [itemsPerPage, setItemsPerPage] = useState<number>(10)
   const [isFilterVisible, setIsFilterVisible] = useState<boolean>(false)
 
   useEffect(() => {
-    if(!loading)setFilteredRows(rows)
-},[loading])
+    if (!loading) setFilteredRows(rows)
+  }, [loading])
 
   const handleActionClicked = (rowId: string) => {
     setActiveRow((prevActiveRow) => (prevActiveRow === rowId ? null : rowId))
@@ -68,18 +67,17 @@ const Table = ({ rows, loading, rowLength }: TableProps) => {
     setPageCount(Math.ceil(filteredRows.length / itemsPerPage))
   }, [itemOffset, itemsPerPage, filteredRows])
 
-  const organizationsSelectOptions: OptionsType<{
-    value: string
-    label: string
-  }> = Array.from(
+  const organizationsSelectOptions = Array.from(
     new Set(rows.map((row) => ({ value: row.company, label: row.company })))
   )
-  const statusSelectOptions: OptionsType<{ value: string; label: string }> = [
+
+  const statusSelectOptions = [
     { value: 'active', label: 'active' },
     { value: 'pending', label: 'pending' },
     { value: 'inactive', label: 'inactive' },
     { value: 'blacklisted', label: 'blacklisted' },
   ]
+
   const handleItemsPerPageChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -128,7 +126,7 @@ const Table = ({ rows, loading, rowLength }: TableProps) => {
       const filteredRowsResult: User[] = filteredRows.filter((row: User) => {
         console.log(searchTerm)
         return (
-          row.company.includes(searchTerm.organization) &&
+          row.company.includes(searchTerm.organization ?? '') &&
           row.name.toLowerCase().includes(searchTerm.user.toLowerCase()) &&
           row.email.toLowerCase().includes(searchTerm.email.toLowerCase()) &&
           row.dateJoined.toString().includes(searchTerm.date) &&
@@ -147,11 +145,17 @@ const Table = ({ rows, loading, rowLength }: TableProps) => {
       <div className={`filter__container ${!isFilterVisible && 'hideFilter'}`}>
         <p className='filter__container-header'>Organization</p>
         <Select
-          defaultValue=''
+          value={{
+            value: searchTerm.organization,
+            label: searchTerm.organization,
+          }} // Provide selected value as an object
           options={organizationsSelectOptions}
-          onChange={(e) =>
-            setSearchTerm({ ...searchTerm, organization: e.value })
-          }
+          onChange={(selectedOption) => {
+            setSearchTerm({
+              ...searchTerm,
+              organization: selectedOption?.value || '',
+            })
+          }}
         />
         <p className='filter__container-header top'>Username</p>
         <input
@@ -189,9 +193,14 @@ const Table = ({ rows, loading, rowLength }: TableProps) => {
         />
         <p className='filter__container-header top'>Staus</p>
         <Select
-          defaultValue=''
+          value={{ value: searchTerm.status, label: searchTerm.status }}
           options={statusSelectOptions}
-          onChange={(e) => setSearchTerm({ ...searchTerm, status: e.value })}
+          onChange={(selectedOption) => {
+            setSearchTerm({
+              ...searchTerm,
+              status: selectedOption?.value || '',
+            })
+          }}
         />
         <div className='filter__container-buttons'>
           <button
