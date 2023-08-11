@@ -16,14 +16,19 @@
     margin-right: 1.3rem;
   }
 }
+.userHeader__container {
+  display: flex;
+  justify-content: flex-start;
+  @media (max-width: $tablet) {
+    width: 100%;
+  }
+}
 .user__details-header {
-  // background: red;
   margin-top: 3.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   @media (max-width: $tablet) {
-    // align-items: center;
     flex-direction: column;
   }
 }
@@ -31,7 +36,6 @@
   @media (max-width: $tablet) {
     display: flex;
     margin-top: 3rem;
-    // background:blue;
   }
   button {
     outline: none;
@@ -91,10 +95,6 @@
   .basicdetails__first-row {
     display: flex;
     align-items: center;
-    // height: 100px;
-
-    // flex-wrap: wrap;
-    // background: red;
     @media (max-width: $tablet) {
       flex-direction: column;
       align-items: center;
@@ -140,7 +140,6 @@
   }
   .usertier__container {
     @include container;
-    // align-items: center;
     .tierText {
       color: $primaryBodyText;
       font-size: 1.4rem;
@@ -186,7 +185,6 @@
     margin-top: 5.1rem;
     margin-right: 1rem;
     overflow-x: scroll;
-    // background: green;
     display: flex;
     justify-content: space-between;
     @media (max-width: $tablet) {
@@ -246,7 +244,6 @@
 @mixin row {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-between;
   @media (max-width: 70rem) {
     flex-direction: column;
   }

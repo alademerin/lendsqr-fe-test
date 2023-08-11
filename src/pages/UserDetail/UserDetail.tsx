@@ -39,7 +39,7 @@ const UserDetail = () => {
         <p className='backArrow'>Back to Users</p>
       </div>
       <div className='user__details-header'>
-        <div>
+        <div className='userHeader__container'>
           <h2 className='title'>User Details</h2>
         </div>
         <div className='action__btn-container'>

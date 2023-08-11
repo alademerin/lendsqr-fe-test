@@ -199,19 +199,19 @@ table {
 }
 .actions {
   cursor: pointer;
-  @media (max-width: 80rem) {
+  @media (max-width: 90rem) {
     background: red;
     position: absolute;
     top: 0;
   }
 }
 
-.action__btn{
+.action__btn {
   // background:red;
-  @media (max-width:$tablet) {
-   position:absolute ;
-   top:-200px;
-   right:0;
+  @media (max-width: 90rem) {
+    position: absolute;
+    top: -200px;
+    right: 0;
   }
 }
 
@@ -227,9 +227,9 @@ table {
   width: 20rem;
   height: 15rem;
   bottom: -50px;
-  @media (max-width:$tablet) {
-   left:60%;
-   top:-16rem;
+  @media (max-width: 90rem) {
+    left: 60%;
+    top: -16rem;
   }
   .dropdown__item {
     display: flex;
@@ -358,8 +358,8 @@ table {
   border: 1px solid rgba(84, 95, 125, 0.14);
   box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
   padding: 3rem 2rem;
-  @media (max-width:$tablet) {
-    top:1rem; 
+  @media (max-width: $tablet) {
+    top: 1rem;
   }
   &-header {
     color: #545f7d;
@@ -416,8 +416,8 @@ table {
   display: none;
   @media (max-width: $tablet) {
     display: flex;
-    img{
-      margin-left:1rem;
+    img {
+      margin-left: 1rem;
     }
   }
 }

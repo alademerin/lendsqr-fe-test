@@ -28,7 +28,13 @@ import BadgePercent from '../../assets/badge-percent 1.svg'
 import Clipboard from '../../assets/clipboard-list 1.svg'
 import Tire from '../../assets/tire 1.svg'
 import LogoutIcon from '../../assets/sign-out 1.svg'
-import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import {
+  NavLink,
+  Outlet,
+  useNavigate,
+  useLocation,
+  useMatch,
+} from 'react-router-dom'
 import Hamburger from 'hamburger-react'
 
 interface MenuItem {
@@ -222,11 +228,20 @@ const NavBar = () => {
                   <p className='header'>{widget.title}</p>
                   {widget?.items.map((wi, j) => (
                     <NavLink
-                      className='navlink'
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? 'navlink-active'
+                          : isActive
+                          ? 'navlink-active'
+                          : 'navlink-active'
+                      }
                       key={j}
-                      to={wi.pageLink as string}>
+                      to={wi.pageLink || ''}>
                       <div className={'widget-container'}>
-                        <div className='widget'>
+                        <div
+                          className={`widget ${
+                            useMatch(wi.pageLink || '') ? 'active' : ''
+                          }`}>
                           <img src={wi.icon} alt={wi.name} />
                           <p>{wi.name}</p>
                         </div>
