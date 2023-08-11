@@ -28,13 +28,7 @@ import BadgePercent from '../../assets/badge-percent 1.svg'
 import Clipboard from '../../assets/clipboard-list 1.svg'
 import Tire from '../../assets/tire 1.svg'
 import LogoutIcon from '../../assets/sign-out 1.svg'
-import {
-  NavLink,
-  Outlet,
-  useNavigate,
-  useLocation,
-  useMatch,
-} from 'react-router-dom'
+import { NavLink, Outlet, useNavigate, useMatch } from 'react-router-dom'
 import Hamburger from 'hamburger-react'
 
 interface MenuItem {
