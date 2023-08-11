@@ -1,11 +1,14 @@
-export interface User = {
-  id: string;
+export interface User {
+  _id: string;
   index: string;
+  company: string;
   accountNumber: number;
   picture: string;
   age: number;
   status: string;
   bank: string;
+  email: string;
+  balance: number;
   sectorOfEmployment: string;
   maritalStatus: string;
   name: string;
@@ -19,12 +22,12 @@ export interface User = {
   durationOfEmployment: number;
   loanRepayment: number;
   dateJoined: Date;
-  guarantor: [
-    {
+  guarantors?: Guarantor[];
+}
+
+interface Guarantor {
       name: string;
       phoneNumber: string;
       email: string;
       relationship: string;
-    }
-  ];
 }

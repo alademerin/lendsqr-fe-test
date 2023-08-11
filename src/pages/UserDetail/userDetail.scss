@@ -1,4 +1,4 @@
-@import "../../variables";
+@import '../../variables';
 
 .back__btn {
   display: flex;
@@ -22,8 +22,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: $tablet) {
+    // align-items: center;
+    flex-direction: column;
+  }
 }
 .action__btn-container {
+  @media (max-width: $tablet) {
+    display: flex;
+    margin-top: 3rem;
+    // background:blue;
+  }
   button {
     outline: none;
     border: none;
@@ -43,6 +52,9 @@
     line-height: normal;
     letter-spacing: 1.4px;
     text-transform: uppercase;
+    @media (max-width: $tablet) {
+      transform: scale(0.9);
+    }
   }
   .btn__blacklist {
     @include button;
@@ -67,6 +79,8 @@
   margin-top: 4rem;
   padding-top: 3rem;
   padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
   padding-right: 3rem;
   box-shadow: $box-shadow;
   img {
@@ -77,8 +91,14 @@
   .basicdetails__first-row {
     display: flex;
     align-items: center;
-    height: 100px;
+    // height: 100px;
+
+    // flex-wrap: wrap;
     // background: red;
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   @mixin container {
     margin-left: 2rem;
@@ -88,9 +108,15 @@
     justify-content: center;
     padding-right: 3rem;
     border-right: 1px solid rgba($primaryPageText, 0.3); // padding-top: 2rem;
+    @media (max-width: $tablet) {
+      padding-right: 0;
+      border-right: 0;
+    }
   }
   .username__container {
-    // background: green;
+    display: flex;
+    @media (max-width: $tablet) {
+    }
     @include container;
     h3 {
       color: $activeBlue;
@@ -98,6 +124,9 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+      @media (max-width: $tablet) {
+        text-align: center;
+      }
     }
     .userId {
       margin-top: 0.7rem;
@@ -106,6 +135,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      text-align: center;
     }
   }
   .usertier__container {
@@ -130,6 +160,11 @@
   .account {
     @include container;
     border-right: none;
+    @media (max-width: $tablet) {
+      dislay: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .account__balance {
       color: $activeBlue;
       font-size: 2.2rem;
@@ -154,6 +189,11 @@
     // background: green;
     display: flex;
     justify-content: space-between;
+    @media (max-width: $tablet) {
+      p {
+        margin-right: 3rem;
+      }
+    }
     p {
       text-align: center;
       font-size: 16px;
@@ -242,4 +282,3 @@
 .backArrow {
   font-size: 1.6rem;
 }
-

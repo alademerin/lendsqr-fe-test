@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import NavBar from "../../components/NavBar/NavBar";
 import "./users.scss";
 import UsersIcon from "../../assets/users.svg";
 import ActiveUsers from "../../assets/activeUsers.svg";
@@ -40,10 +39,10 @@ const cards: Card[] = [
 ];
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState<[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
-    const getUsers = async (): void => {
+    const getUsers = async (): Promise<void> => {
       try {
         const response = await axios.get(
           "https://run.mocky.io/v3/5f7b134e-2e75-4c33-9ff8-fb77af136719"

@@ -3,13 +3,13 @@ import AuthScaffold from "../../components/AuthScaffold/AuthScaffold";
 import TextInput from "../../components/TextInput/TextInput";
 import Logo from "../../assets/logo.svg";
 import { useState } from "react";
-import { redirect, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e): void => {
+  const handleLogin = (e: { preventDefault: () => void; }): void => {
     e.preventDefault();
     navigate("/");
   };

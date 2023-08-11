@@ -1,11 +1,11 @@
-import { useState } from "react";
 import "./TextInput.scss";
 
 interface Props {
   type: string;
   placeholder: string;
-  passwordLabelText: string;
-  showPassword: () => void;
+  passwordLabelText?: string;
+  showPassword?: () => void;
+  showPasswordLabel?: boolean;
 }
 
 const TextInput = ({

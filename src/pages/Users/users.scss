@@ -7,6 +7,9 @@
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
+  @media (max-width:$tablet) {
+   justify-content: center; 
+  }
   .card {
     min-width: 25rem;
     min-height: 12rem;

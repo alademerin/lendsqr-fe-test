@@ -1,10 +1,10 @@
 @import "../../_variables.scss";
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-.container {
-  // font-family: "Work Sans", sans-serif;
-  // flex-direction: column;
-}
+// .container {
+//   // font-family: "Work Sans", sans-serif;
+//   // flex-direction: column;
+// }
 .main__nav {
   width: 100%;
   height: 100px;
@@ -15,6 +15,7 @@
   box-shadow: $nav-box-shadow;
   .left__container {
     display: flex;
+    
   }
   a {
     font-size: 1.6rem;
@@ -27,12 +28,20 @@
   }
   .notification {
     margin-right: 3rem;
+    @media (max-width:$tablet) {
+     display:none; 
+    }
   }
   .userProfile {
     font-size: 1.6rem;
     display: flex;
     align-items: center;
     margin-left: 30px;
+  @media (max-width:$tablet) {
+   p{
+    display:none;
+   } 
+  }
   }
   .profileImage {
     border-radius: 100px;
@@ -47,10 +56,18 @@
   padding-top: 3rem;
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.04);
   font-size: 6rem;
+  background:$white;
   overflow-y: scroll;
+  @media (max-width:$tablet) {
+    position: absolute;
+    z-index: 5;
+    
+
+  }
+  
   &::-webkit-scrollbar {
     width: 0.5rem;
-    display: none; /* Hide scrollbar in Chrome and Safari */
+    display: none;
   }
 
   p {
@@ -127,9 +144,11 @@
   border-radius: 8px;
   margin-left: 10.8rem;
   font-size: 1.4rem;
-  @media (max-width: 85rem) {
-    display: none;
+  // @media(max-width:gcc)
+  @media (max-width:$tablet) {
+   display:none; 
   }
+ 
   input {
     width: 34.4rem;
     height: inherit;
@@ -158,6 +177,10 @@
   width: calc(100vw - 28.3rem);
   height: calc(100vh - 10rem);
   overflow-y: scroll;
+  @media (max-width:$tablet) {
+   width:100vw; 
+   height:100vh;
+  }
   h2 {
     font-size: 2.4rem;
     color: $activeBlue;
@@ -178,4 +201,17 @@
   // background: red;
   width: 100%;
   background-color: rgba($primary, 0.3); /* Semi-transparent background on hover */
+}
+
+.hamburgerMenu{
+  display:none;
+  @media (max-width:$tablet) {
+   display:flex; 
+  }
+}
+
+.hideSideBar{
+  display: none;
+  position:absolute;
+  z-index:1
 }
