@@ -45,7 +45,7 @@ const Users = () => {
     const getUsers = async (): Promise<void> => {
       try {
         const response = await axios.get(
-          "https://run.mocky.io/v3/5f7b134e-2e75-4c33-9ff8-fb77af136719"
+          "https://run.mocky.io/v3/1582a7a8-3512-4df8-b9e3-506faafa7ac2"
         );
         const data = response.data;
         // console.log("users to be set r", data);
